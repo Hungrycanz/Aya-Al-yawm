@@ -1,0 +1,477 @@
+:root {
+    color-scheme: light;
+    --ink: #233b32;
+    --muted: #718078;
+    --line: #d6ded5;
+    --green: #286a53;
+    --coral: #bc523a;
+    --paper: #f1f4ec;
+    --display: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --ui: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image: linear-gradient(115deg, rgba(247, 249, 243, 0.95), rgba(238, 243, 235, 0.88)), url("Undecorated.jpg");
+    background-position: center;
+    background-size: cover;
+    font-family: var(--ui);
+}
+
+.site-shell {
+    display: flex;
+    flex-direction: column;
+    width: min(1120px, calc(100% - 72px));
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+.masthead,
+.page-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.masthead {
+    min-height: 98px;
+    border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.wordmark-mark {
+    color: var(--coral);
+    font-size: 30px;
+    line-height: 1;
+}
+
+.wordmark-name {
+    display: grid;
+    gap: 3px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.wordmark-name small,
+.masthead-note,
+.eyebrow,
+.quick-heading,
+.panel-heading,
+.verse-reference,
+.empty-kicker,
+.page-footer {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.wordmark-name small,
+.masthead-note,
+.eyebrow,
+.quick-heading,
+.panel-heading,
+.verse-reference,
+.empty-kicker,
+.page-footer {
+    color: var(--muted);
+}
+
+.masthead-note,
+.page-footer,
+.panel-heading,
+.verse-reference,
+.empty-kicker {
+    text-transform: uppercase;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lookup {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 76px;
+    width: 100%;
+    padding: 64px 0 48px;
+}
+
+.lookup-controls,
+.verse-panel {
+    animation: arrive 520ms ease-out both;
+}
+
+.verse-panel {
+    animation-delay: 80ms;
+}
+
+.eyebrow {
+    margin: 0 0 20px;
+}
+
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-family: var(--display);
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 1.08;
+}
+
+h1 span {
+    color: var(--coral);
+}
+
+.lookup-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.field {
+    display: grid;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.field input {
+    width: 100%;
+    height: 50px;
+    padding: 0 13px;
+    border: 1px solid #cbd5ca;
+    border-radius: 4px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.72);
+    color: var(--ink);
+    font: 18px var(--ui);
+    transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.field input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(40, 106, 83, 0.14);
+}
+
+.submit-button {
+    display: flex;
+    grid-column: 1 / -1;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 50px;
+    margin-top: 4px;
+    padding: 0 17px;
+    border: 0;
+    border-radius: 4px;
+    background: var(--green);
+    color: #fff;
+    cursor: pointer;
+    font: 700 14px var(--ui);
+    transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.submit-button:hover {
+    background: #1d5944;
+}
+
+.submit-button:active {
+    transform: translateY(1px);
+}
+
+.submit-button:focus-visible,
+.quick-references a:focus-visible,
+.wordmark:focus-visible {
+    outline: 3px solid rgba(188, 82, 58, 0.48);
+    outline-offset: 3px;
+}
+
+.quick-references {
+    display: grid;
+    gap: 0;
+    margin-top: 38px;
+}
+
+.quick-heading {
+    margin: 0 0 8px;
+}
+
+.quick-references a {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 140ms ease;
+}
+
+.quick-references a:hover {
+    color: var(--coral);
+}
+
+.quick-references a span:last-child {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.verse-panel {
+    min-height: 360px;
+    padding: 4px 0 0 42px;
+    border-left: 1px solid var(--line);
+}
+
+.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+}
+
+.panel-heading span:last-child {
+    color: var(--coral);
+}
+
+.verse-reference {
+    margin: 34px 0 22px;
+}
+
+.verse-reference span {
+    padding: 0 5px;
+    color: var(--coral);
+}
+
+.verse-text {
+    margin: 0;
+    color: #273f35;
+    font-family: "Noto Naskh Arabic", "Traditional Arabic", serif;
+    font-size: 32px;
+    line-height: 2.05;
+    overflow-wrap: anywhere;
+    text-align: right;
+}
+
+.daily-verse {
+    display: grid;
+    grid-template-columns: minmax(190px, 0.4fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 42px;
+    width: 100%;
+    margin-bottom: 28px;
+    padding: 24px 0 30px;
+    border-top: 1px solid var(--line);
+    animation: arrive 520ms ease-out both;
+}
+
+.daily-verse-meta .eyebrow {
+    margin-bottom: 10px;
+}
+
+.daily-verse-meta h2 {
+    margin-bottom: 12px;
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.daily-reference {
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.daily-reference span {
+    padding: 0 5px;
+    color: var(--coral);
+}
+
+.refresh-verse {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--coral);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.refresh-verse:hover {
+    color: #913c2b;
+}
+
+.refresh-verse:focus-visible {
+    outline: 3px solid rgba(188, 82, 58, 0.48);
+    outline-offset: 3px;
+}
+
+.daily-verse-text {
+    margin: 0;
+    color: var(--ink);
+    font-family: "Noto Naskh Arabic", "Traditional Arabic", serif;
+    font-size: 27px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+    text-align: right;
+}
+
+.empty-state {
+    display: flex;
+    min-height: 290px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.empty-mark {
+    margin-bottom: 18px;
+    color: var(--coral);
+    font-family: var(--display);
+    font-size: 40px;
+    line-height: 1;
+}
+
+.empty-kicker {
+    margin: 0 0 8px;
+}
+
+.empty-copy {
+    margin: 0;
+    color: var(--muted);
+    font-family: var(--display);
+    font-size: 20px;
+}
+
+.empty-state h2 {
+    margin-bottom: 8px;
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.empty-state h2 + p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.page-footer {
+    min-height: 64px;
+    border-top: 1px solid var(--line);
+}
+
+@keyframes arrive {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 760px) {
+    .site-shell {
+        width: calc(100% - 40px);
+    }
+
+    .lookup {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 48px 0;
+    }
+
+    h1 {
+        font-size: 46px;
+    }
+
+    .verse-panel {
+        min-height: 300px;
+        padding: 28px 0 0;
+        border-top: 1px solid var(--line);
+        border-left: 0;
+    }
+
+    .empty-state {
+        min-height: 230px;
+    }
+
+    .daily-verse {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .daily-verse-meta h2 {
+        font-size: 25px;
+    }
+
+    .daily-verse-text {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 420px) {
+    .site-shell {
+        width: calc(100% - 32px);
+    }
+
+    .masthead {
+        min-height: 78px;
+    }
+
+    .masthead-note {
+        font-size: 10px;
+    }
+
+    .lookup {
+        padding: 38px 0;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .verse-text {
+        font-size: 27px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
