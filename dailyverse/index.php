@@ -56,6 +56,16 @@ $verseValue = is_scalar($verse) ? htmlspecialchars((string) $verse, ENT_QUOTES, 
                     <?php if ($hasSearch && $row): ?>
                         <p class="verse-reference">SURAH <?= $chapterValue ?> <span>/</span> AYAH <?= $verseValue ?></p>
                         <p class="verse-text" lang="ar" dir="rtl"><?= htmlspecialchars((string) $row['verse'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?></p>
+                        <div class="translation-list" aria-label="Translations">
+                            <section class="translation" lang="en">
+                                <p class="translation-label">ENGLISH · SAHEEH INTERNATIONAL · TANZIL.NET</p>
+                                <p class="translation-text"><?= htmlspecialchars((string) $row['english_translation'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?></p>
+                            </section>
+                            <section class="translation" lang="sw">
+                                <p class="translation-label">KISWAHILI · ALI MUHSIN AL-BARWANI · TANZIL.NET</p>
+                                <p class="translation-text"><?= htmlspecialchars((string) $row['swahili_translation'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?></p>
+                            </section>
+                        </div>
                     <?php elseif ($hasSearch): ?>
                         <div class="empty-state">
                             <span class="empty-mark" aria-hidden="true">&#8709;</span>
@@ -82,6 +92,16 @@ $verseValue = is_scalar($verse) ? htmlspecialchars((string) $verse, ENT_QUOTES, 
                 </div>
                 <?php if ($randomVerse): ?>
                     <p class="daily-verse-text" lang="ar" dir="rtl"><?= htmlspecialchars((string) $randomVerse['verse'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?></p>
+                    <div class="translation-list daily-translations" aria-label="Translations">
+                        <section class="translation" lang="en">
+                            <p class="translation-label">ENGLISH · SAHEEH INTERNATIONAL · TANZIL.NET</p>
+                            <p class="translation-text"><?= htmlspecialchars((string) $randomVerse['english_translation'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?></p>
+                        </section>
+                        <section class="translation" lang="sw">
+                            <p class="translation-label">KISWAHILI · ALI MUHSIN AL-BARWANI · TANZIL.NET</p>
+                            <p class="translation-text"><?= htmlspecialchars((string) $randomVerse['swahili_translation'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') ?></p>
+                        </section>
+                    </div>
                 <?php else: ?>
                     <p class="daily-verse-text daily-verse-unavailable">This year's verse schedule has not been generated yet.</p>
                 <?php endif; ?>

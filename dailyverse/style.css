@@ -277,6 +277,32 @@ h1 span {
     text-align: right;
 }
 
+.translation-list {
+    display: grid;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.translation {
+    padding-top: 13px;
+    border-top: 1px solid var(--line);
+}
+
+.translation-label {
+    margin: 0 0 7px;
+    color: var(--coral);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.translation-text {
+    margin: 0;
+    color: #485b52;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
 .daily-verse {
     display: grid;
     grid-template-columns: minmax(190px, 0.4fr) minmax(0, 1fr);
@@ -339,6 +365,11 @@ h1 span {
     line-height: 1.9;
     overflow-wrap: anywhere;
     text-align: right;
+}
+
+.daily-translations {
+    grid-column: 2;
+    margin-top: -20px;
 }
 
 .empty-state {
@@ -436,6 +467,11 @@ h1 span {
 
     .daily-verse-text {
         font-size: 24px;
+    }
+
+    .daily-translations {
+        grid-column: 1;
+        margin-top: 0;
     }
 }
 
